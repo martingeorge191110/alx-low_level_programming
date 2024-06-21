@@ -10,28 +10,17 @@
 
 int main(void)
 {
-	int start, end;
+	int digit = 48;
 
-	start = 0;
-	end = 9;
-	while (start <= end)
+	while (digit <= 102)
 	{
-		if (start == 9)
+		putchar(digit);
+		if (digit == 57)
 		{
-			start = 'a';
-			end = 'f';
+			digit = digit + 39;
 		}
-
-		if (end == 9)
-		{
-			putchar(start + '0');
-		} else
-		{
-			putchar(start);
-		}
-		start++;
+		digit++;
 	}
-	putchar('\n');
 
 	return (0);
 }
