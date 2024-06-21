@@ -16,16 +16,19 @@ int main(void)
 	end = 9;
 	while (start <= end)
 	{
-		if (end == 9)
-		{
-			putchar(start + '0');
-		}
 		if (start == 9)
 		{
 			start = 'a';
 			end = 'f';
 		}
-		putchar(start);
+
+		if (end == 9)
+		{
+			putchar(start + '0');
+		} else
+		{
+			putchar(start);
+		}
 		start++;
 	}
 	putchar('\n');
