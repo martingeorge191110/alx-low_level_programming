@@ -10,23 +10,25 @@
 
 int main(void)
 {
-	unsigned long prev, curr, sum;
+	unsigned long prev, curr, sum, evSum = 0;
 
 	prev = 1;
 	curr = 2;
 
 	sum = prev + curr;
-	printf("%lu, %lu, ", prev, curr);
-	while (sum < 3524578)
+
+	while (sum < 4000000)
 	{
 		sum = prev + curr;
-		if (sum == 3524578)
+		if (sum > 4000000)
 			break;
-		printf("%lu, ", sum);
+		if (sum % 2 == 0)
+			evSum += sum;
 		prev = curr;
 		curr = sum;
 	}
-	printf("%lu", sum);
+	evSum += 2;
+	printf("%lu", evSum);
 	printf("\n");
 
 	return (0);
