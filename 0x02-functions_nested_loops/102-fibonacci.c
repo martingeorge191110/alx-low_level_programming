@@ -18,7 +18,7 @@ int main(void)
 	curr = 2;
 
 	printf("%lu, %lu, ", prev, curr);
-	for (i = 2; i < 48; i++)
+	for (i = 2; i < 49; i++)
 	{
 		sum = prev + curr;
 		printf("%lu, ", sum);
