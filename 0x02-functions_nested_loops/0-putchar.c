@@ -1,4 +1,4 @@
-#include <main.h>
+#include "_putchar.c"
 
 /**
  * main - Entry Point
@@ -11,16 +11,15 @@
 int main(void)
 {
 	char *putChars;
-
-	putChars = "_putchar";
-
 	int index;
 
+	putChars = "_putchar";
 	index = 0;
 	while (index < sizeof(putChars) / sizeof(putChars[0]))
 	{
 		_putchar(putChars[index]);
 		index++;
 	}
+	_putchar('\n');
 	return (0);
 }
