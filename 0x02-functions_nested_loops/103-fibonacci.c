@@ -10,7 +10,6 @@
 
 int main(void)
 {
-	int i;
 	unsigned long prev, curr, sum;
 
 	prev = 1;
