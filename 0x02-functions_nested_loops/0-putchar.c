@@ -10,14 +10,14 @@
 
 int main(void)
 {
-	char *putChars;
+	int asciValues[] = {95, 112, 117, 116, 99, 104, 97, 114};
+
 	int index;
 
-	putChars = "_putchar";
 	index = 0;
-	while (index < sizeof(putChars) / sizeof(putChars[0]))
+	while (index < 8)
 	{
-		_putchar(putChars[index]);
+		_putchar(asciValues[index]);
 		index++;
 	}
 	_putchar('\n');
