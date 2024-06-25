@@ -7,12 +7,13 @@
 
 void print_times_table(int n)
 {
+
+	int counter, index, miniIndex;
+	
 	if (n > 15 || n < 0)
 	{
 		return;
 	}
-
-		int counter, index, miniIndex;
 
 	counter = 0;
 	for (index = 0; index <= n ; index++)
