@@ -8,8 +8,8 @@ void times_table(void)
 {
 	int counter, index, miniIndex;
 
-	counter = 1;
-	for (index = 0; index < 9 ; index++)
+	counter = 0;
+	for (index = 0; index < 10 ; index++)
 	{
 		_putchar('0');
 		for (miniIndex = 1; miniIndex < 10; miniIndex++)
