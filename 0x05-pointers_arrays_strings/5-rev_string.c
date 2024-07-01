@@ -25,5 +25,4 @@ void rev_string(char *s)
 		newStr[i] = s[counter];
 		counter--;
 	}
-	printf("%s", newStr);
 }
