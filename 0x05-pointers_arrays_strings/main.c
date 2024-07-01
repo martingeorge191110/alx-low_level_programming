@@ -2,12 +2,12 @@
 
 void print_array(int *a, int n)
 {
-	if(n < 0)
-		return;
+	
 	int i;
 
-	for (i = 0; i < n - 1 ; i++)
+	for (i = 0; i < n ; i++)
 	{
+		if (i )
 		printf("%d, ", a[i]);
 	}
 		printf("%d", a[n - 1]);
