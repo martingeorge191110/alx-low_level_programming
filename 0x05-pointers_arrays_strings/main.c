@@ -1,17 +1,22 @@
 #include <stdio.h>
 
 
-void reset_to_98(int *n)
+void swap_int(int *a, int *b)
 {
-    *n = 98;
-}
+    int temp;
 
+    temp = *a;
+    *a = *b;
+    *b = temp;
+}
 
 int main()
 {
-    int number = 402;
-    reset_to_98(&number);
-    printf("%d", number);
+    int num1, num2;
+    num1 = 10; num2 = 20;
+    swap_int(&num1, &num2);
+
+    printf("num1:%d ,, num2:%d",num1, num2);
 
 
     return (0);
