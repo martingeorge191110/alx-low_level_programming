@@ -21,7 +21,7 @@ void rev_string(char *s)
 
 	for (i = 0; i < start; i++)
 	{
-		for (counter = i + 1; counter >= 0; counter--)
+		for (counter = i + 1; counter > 0; counter--)
 		{
 			temp = *(newStr + counter);
 			*(newStr + counter) = *(newStr + (counter - 1));
