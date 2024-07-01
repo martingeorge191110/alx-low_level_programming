@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * puts2 - prints every other character of a string
+ * puts_half - print the secodn half
  * @str: string
  */
 
-void puts2(char *str)
+void puts_half(char *str)
 {
 	int i, j;
 
@@ -14,7 +14,8 @@ void puts2(char *str)
 	{
 		i++;
 	}
-	for (j = 0; j <= i; j += 2)
+
+	for (j = (i / 2); j < i; j++)
 	{
 		_putchar(str[j]);
 	}

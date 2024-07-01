@@ -1,16 +1,16 @@
 #include <stdio.h>
 
-void puts2(char *str)
+void puts_half(char *str)
 {
     int i, j;
 
-    i = 0;
-    while (str[i] != '\0')
-    {
-        i++;
-    }
-    i -= 1;
-    for (int j = 0; j < i; j += 2)
+	i = 0;
+	while (str[i] != '\0')
+	{
+		i++;
+	}
+
+    for (j = (i / 2); j < i; j++)
     {
         putchar(str[j]);
     }
@@ -21,7 +21,7 @@ int main()
 {
     char *str = "0123456789";
 
-    puts2(str);
+    puts_half(str);
 
     return (0);
 }
