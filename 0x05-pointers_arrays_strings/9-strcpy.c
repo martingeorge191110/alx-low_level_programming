@@ -22,11 +22,8 @@ char *_strcpy(char *dest, char *src)
 	for (index = 0; index <= start; index++)
 	{
 		dest[index] = src[index];
-		if (index == start)
-		{
-			dest[index] = '\0';
-		}
 	}
+	dest[index] = '\0';
 
 	return (dest);
 }
