@@ -9,7 +9,7 @@ void print_rev(char *s)
     {
         start++;
     }
-    while(start >= 0)
+    while(start-1 >= 0)
     {
         putchar(s[start]);
         start--;
@@ -19,7 +19,7 @@ void print_rev(char *s)
 
 int main()
 {
-    char *strPtr = "martin george";
+    char *strPtr = "I do not fear computers. I fear the lack of them - Isaac Asimov";
     print_rev(strPtr);
 
     return (0);
