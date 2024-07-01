@@ -1,39 +1,27 @@
 #include <stdio.h>
 
-void rev_string(char *s)
+void puts2(char *str)
 {
-   int start, i, counter;
-   char *newStr, temp;
+    int i, j;
 
-	start = 0;
-	while (s[start] != '\0')
-	{
-		start++;
-	}
-
-	start -= 1;
-	newStr = s;
-    
-
-	for (i = 0; i < start; i++)
-	{
-		for (counter = i + 1; counter >= 0; counter--)
-		{
-			temp = *(newStr + counter);
-			*(newStr + counter) = *(newStr + (counter - 1));
-			*(newStr + (counter - 1)) = temp;
-		}
-	}
-
+    i = 0;
+    while (str[i] != '\0')
+    {
+        i++;
+    }
+    i -= 1;
+    for (int j = 0; j < i; j += 2)
+    {
+        putchar(str[j]);
+    }
+    putchar('\n');
 }
 
 int main()
 {
-    char *str = "My School";
+    char *str = "0123456789";
 
-    // printf("%s\n", str);
-    rev_string(str);
-    // printf("%s\n", str);
+    puts2(str);
 
     return (0);
 }
