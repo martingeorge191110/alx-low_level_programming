@@ -1,4 +1,10 @@
-#include <stdio.h>
+#include "main.h"
+
+/**
+ * print_array - prints n elements of an array of integers
+ * @a: array of int
+ * @n: size of array
+ */
 
 void print_array(int *a, int n)
 {
@@ -10,14 +16,4 @@ void print_array(int *a, int n)
 	}
 		printf("%d", a[n - 1]);
 		putchar('\n');
-}
-
-
-int main()
-{
-    int arr[] = {1,2,3,4,5};
-
-    print_array(arr,5);
-
-    return (0);
 }
