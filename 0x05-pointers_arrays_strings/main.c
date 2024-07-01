@@ -2,6 +2,8 @@
 
 void print_array(int *a, int n)
 {
+	if(n < 0)
+		return;
 	int i;
 
 	for (i = 0; i < n - 1 ; i++)
@@ -15,9 +17,14 @@ void print_array(int *a, int n)
 
 int main()
 {
-    int arr[] = {1,2,3,4,5};
+	int array[5];
 
-    print_array(arr,5);
+	array[0] = 98;
+	array[1] = 402;
+	array[2] = -198;
+	array[3] = 298;
+	array[4] = -1024;
+	print_array(array, 5);
 
-    return (0);
+	return (0);
 }
