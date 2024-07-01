@@ -1,22 +1,21 @@
 #include <stdio.h>
 
 
-void swap_int(int *a, int *b)
+int _strlen(char *s)
 {
-    int temp;
+   int index;
 
-    temp = *a;
-    *a = *b;
-    *b = temp;
+	for (index = 0; s[index] != '\0'; index++)
+	{};
+
+	return (index);
 }
 
 int main()
 {
-    int num1, num2;
-    num1 = 10; num2 = 20;
-    swap_int(&num1, &num2);
+   int length = _strlen("martin george");
 
-    printf("num1:%d ,, num2:%d",num1, num2);
+    printf("%d", length);
 
 
     return (0);
