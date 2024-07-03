@@ -1,32 +1,20 @@
 #include <stdio.h>
 
-char *_strcat(char *dest, char *src)
+char *_strncat(char *dest, char *src, int n)
 {
-	int i, j, counter;
+    int i, counter;
 
-	i = 0;
+    for (i = 0; dest[i] != '\0'; i++)
+    {};
 
-	j = 0;
-
-	while (dest[i] != '\0')
-	{
-		i++;
-	}
-
-	while (src[j] != '\0')
-	{
-		j++;
-	}
-
-	for (counter = 0; counter < j; counter++)
-	{
-		dest[i + counter] = src[counter];
-	}
+    for(counter = 0; counter < n && src[counter] != '\0'; counter++)
+    {
+        dest[i + counter] = src[counter];
+    }
     dest[i + counter] = '\0';
 
-	return (dest);
+    return (dest);
 }
-
 
 int main(void)
 {
@@ -36,7 +24,11 @@ int main(void)
 
     printf("%s\n", s1);
     printf("%s", s2);
-    ptr = _strcat(s1, s2);
+    ptr = _strncat(s1, s2, 1);
+    printf("%s\n", s1);
+    printf("%s", s2);
+    printf("%s\n", ptr);
+    ptr = _strncat(s1, s2, 1024);
     printf("%s", s1);
     printf("%s", s2);
     printf("%s", ptr);
