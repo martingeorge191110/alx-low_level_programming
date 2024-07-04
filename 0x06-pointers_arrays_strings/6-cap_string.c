@@ -1,6 +1,29 @@
 #include "main.h"
 
 /**
+ * isCharacter - check character or not
+ * @charac: character to check
+ *
+ * Return: (checker)
+ */
+
+int isCharacter(char charac)
+{
+	int checker;
+
+	checker = 0;
+	if (charac >= 'a' && charac <= 'z')
+	{
+		checker = 1;
+	} else if (charac >= 'A' && charac <= 'Z')
+	{
+		checker = 2;
+	}
+
+	return (checker);
+}
+
+/**
  * cap_string - capitalizes all words of a string
  * @str: string to capitalize
  *
@@ -9,8 +32,7 @@
 
 char *cap_string(char *str)
 {
-	int index;
-
+	int index, checkPrevChar, checkCurrentChar;
 
 	if (str[0] >= 'a' && str[0] <= 'z')
 	{
@@ -19,14 +41,15 @@ char *cap_string(char *str)
 
 	for (index = 1; str[index] != '\0'; index++)
 	{
+		checkPrevChar = isCharacter(str[index - 1]);
+		checkCurrentChar = isCharacter(str[index]);
 
-		if ((str[index - 1] < 'a' || str[index - 1] > 'z') &&
-			(str[index - 1] < 'A' || str[index - 1] > 'Z'))
+		if (checkPrevChar == 0 &&
+		checkCurrentChar == 1 &&
+		checkCurrentChar != 2 &&
+		checkPrevChar != 2)
 		{
-			if (str[index] >= 'a' && str[index] <= 'z')
-			{
-				str[index] -= 32;
-			}
+			str[index] -= 32;
 		}
 	}
 
