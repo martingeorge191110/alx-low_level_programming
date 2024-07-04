@@ -41,11 +41,7 @@ char *leet(char *str)
 	for (index = 0; str[index] != '\0'; index++)
 	{
 		checker = checkCharNumber(str[index]);
-
-		if (checker != -1 + '0')
-		{
-			str[index] = checker + '0';
-		}
+		str[index] = (checker != -1 + '0' ? checker : str[index]);
 	}
 
 	return (str);
