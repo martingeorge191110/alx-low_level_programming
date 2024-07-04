@@ -18,13 +18,13 @@ char *cap_string(char *str)
 
 	for (index = 1; str[index] != '\0'; index++)
 	{
-		if ((str[index] < 'a' || str[index] > 'z')
+		if ((str[index - 1] < 'a' || str[index - 1] > 'z')
 		&&
-		(str[index] < 'A' || str[index] > 'Z'))
+		(str[index - 1] < 'A' || str[index - 1] > 'Z'))
 		{
-			if (str[index + 1] >= 'a' && str[index + 1] <= 'z')
+			if (str[index] >= 'a' && str[index] <= 'z')
 			{
-				str[index + 1] -= 32;
+				str[index] -= 32;
 			}
 		}
 	}
