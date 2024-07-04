@@ -1,55 +1,47 @@
 #include <stdio.h>
 
 
-// char *cap_string(char *str)
-// {
-// 	int index, index2;
-//     char charactes[] = {' ', '\t', '\n', ',', '.', ';', '!', '?', '"', '(', ')', '{', '}', '0',
-//                         '1', '2', '3', '4', '5', '6'};
+#include "main.h"
 
-//     if (str[0] >= 'a' && str[0] <= 'z')
-//     {
-//         str[0] -= 32;
-//     }
+/**
+ * isCharacter - check character or not
+ * @charac: character to check
+ *
+ * Return: (checker)
+ */
 
-//     for (index = 1; str[index] != '\0'; index++)
-//     {
-//         if ((str[index] < 'A' || str[index] > 'Z') && (str[index] < 'a' || str[index] > 'z'))
-//         {
-//             for (index2 = 0; index2 < sizeof(charactes) / sizeof(char); index2++)
-//             {
-//                 if (str[index] == charactes[index2] && (str[index + 1] >= 'a' && str[index + 1] <= 'z'))
-//                 {
-//                     str[index + 1] -= 32;
-//                     break;
-//                 }
-//             }
-//         }
-//     }
-
-//     return str;
-// }
-
-int isCharacter (char charac)
+int isCharacter(char charac)
 {
-    int checker;
+	int checker;
 
-    checker = 0;
-    if ((charac >= 'a' && charac <= 'z'))
-    {
-        checker = 1;
-    } else if (charac >= 'A' && charac <= 'Z')
-    {
-        checker = 2;
-    }
-    
-    return (checker);
+	checker = 0;
+	if (charac >= 'a' && charac <= 'z')
+	{
+		checker = 1;
+	} else if (charac >= 'A' && charac <= 'Z')
+	{
+		checker = 2;
+	} else if (charac == ' ' || charac == '\n' || charac == '\t' ||
+	charac == ',' || charac == '.' || charac == '?' ||
+	charac == '(' || charac == ')' || charac == '{' ||
+	charac == '}' || charac == '!')
+	{
+		checker = 3;
+	}
+
+	return (checker);
 }
+
+/**
+ * cap_string - capitalizes all words of a string
+ * @str: string to capitalize
+ *
+ * Return: (str) new str version
+ */
 
 char *cap_string(char *str)
 {
 	int index, checkPrevChar, checkCurrentChar;
-
 
 	if (str[0] >= 'a' && str[0] <= 'z')
 	{
@@ -58,10 +50,14 @@ char *cap_string(char *str)
 
 	for (index = 1; str[index] != '\0'; index++)
 	{
-        checkPrevChar = isCharacter(str[index - 1]);
-        checkCurrentChar = isCharacter(str[index]);
- 
-		if (checkPrevChar == 0 && checkCurrentChar == 1 && checkCurrentChar != 2 && checkPrevChar != 2)
+		checkPrevChar = isCharacter(str[index - 1]);
+		checkCurrentChar = isCharacter(str[index]);
+        printf("%d .. %d\n" , checkCurrentChar , checkPrevChar);
+
+		if (checkPrevChar == 3 &&
+		checkCurrentChar == 1 &&
+		checkCurrentChar != 2 &&
+		checkPrevChar != 2)
 		{
 			str[index] -= 32;
 		}

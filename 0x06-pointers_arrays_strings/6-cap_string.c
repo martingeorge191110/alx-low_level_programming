@@ -18,6 +18,12 @@ int isCharacter(char charac)
 	} else if (charac >= 'A' && charac <= 'Z')
 	{
 		checker = 2;
+	} else if (charac == ' ' || charac == '\n' || charac == '\t' ||
+	charac == ',' || charac == '.' || charac == '?' ||
+	charac == '(' || charac == ')' || charac == '{' ||
+	charac == '}' || charac == '!')
+	{
+		checker = 3;
 	}
 
 	return (checker);
@@ -44,7 +50,7 @@ char *cap_string(char *str)
 		checkPrevChar = isCharacter(str[index - 1]);
 		checkCurrentChar = isCharacter(str[index]);
 
-		if (checkPrevChar == 0 &&
+		if (checkPrevChar == 3 &&
 		checkCurrentChar == 1 &&
 		checkCurrentChar != 2 &&
 		checkPrevChar != 2)
