@@ -1,47 +1,27 @@
 #include <stdio.h>
 
-void print_array(int *a, int n)
+char *string_toupper(char *arrOfChars)
 {
-    int i;
+    int index;
 
-    i = 0;
-    while (i < n)
+    for (index = 0; arrOfChars[index] != '\0'; index++)
     {
-        if (i != 0)
+        if (arrOfChars[index] >= 97 && arrOfChars[index] <= 122)
         {
-            printf(", ");
+            arrOfChars[index] -= 32;
         }
-        printf("%d", a[i]);
-        i++;
     }
-    printf("\n");
+
+    return (arrOfChars);
 }
 
-void reverse_array(int *a, int n)
-{
-    int start, end, temp;
-
-    end = n - 1;
-    for (start = 0; start < end; start++)
-    {
-        temp = a[start];
-        a[start] = a[end];
-        a[end] = temp;
-        end--;
-    }
-}
-
-/**
- * main - check the code
- *
- * Return: Always 0.
- */
 int main(void)
 {
-    int a[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 98, 1024, 1337};
+    char str[] = "Look up!\n";
+    char *ptr;
 
-    print_array(a, sizeof(a) / sizeof(int));
-    reverse_array(a, sizeof(a) / sizeof(int));
-    print_array(a, sizeof(a) / sizeof(int));
+    ptr = string_toupper(str);
+    printf("%s", ptr);
+    printf("%s", str);
     return (0);
 }
