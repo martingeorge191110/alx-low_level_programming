@@ -2,15 +2,15 @@
 
 char *leet(char *str)
 {
-	int index, checker, i;
-	char characters[] = {'a' ,'e' ,'o', 't','l'};
-	char charsInt[] = {4, 3, 0, 7, 1};
+	int index, i;
+	char characters[] = {'a', 'e', 'o', 't', 'l'};
+	int charsInt[] = {4, 3, 0, 7, 1};
 
 	for (index = 0; str[index] != '\0'; index++)
 	{
 		for (i = 0; i < sizeof(characters) / sizeof(char); i++)
 		{
-			if (str[index] == characters[i] ||str[index] == characters[i] - 32)
+			if (str[index] == characters[i] || str[index] == characters[i] - 32)
 			{
 				str[index] = charsInt[i] + '0';
 			}
