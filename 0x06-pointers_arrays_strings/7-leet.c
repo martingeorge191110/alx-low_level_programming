@@ -19,7 +19,7 @@ char *leet(char *str)
 		{
 			if (str[index] == characters[i] || str[index] == characters[i] - 32)
 			{
-				str[index] = charsInt[i] + '0';
+				str[index] = charsInt[i] + 48;
 			}
 		}
 	}
