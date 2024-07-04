@@ -1,39 +1,23 @@
 #include <stdio.h>
 
-int checkCharNumber (char c)
-{
-    int i, result;
-    char characters[] = {'a', 'e', 'o', 't', 'l'};
-    char charsInt[] = {4, 3, 0, 7, 1};
-
-    result = -1;
-    for (i = 0; i < sizeof(characters) / sizeof(char); i++)
-    {
-        if (c == characters[i] || c == characters[i] - 32)
-        {
-            result = charsInt[i];
-            break;
-        }
-    }
-
-    return (result);
-}
-
 char *leet(char *str)
 {
-    int index, checker;
+	int index, checker, i;
+	char characters[] = {'a' ,'e' ,'o', 't','l'};
+	char charsInt[] = {4, 3, 0, 7, 1};
 
-    for (index = 0; str[index] != '\0'; index++)
-    {
-        checker = checkCharNumber(str[index]);
+	for (index = 0; str[index] != '\0'; index++)
+	{
+		for (i = 0; i < sizeof(characters) / sizeof(char); i++)
+		{
+			if (str[index] == characters[i] ||str[index] == characters[i] - 32)
+			{
+				str[index] = charsInt[i] + '0';
+			}
+		}
+	}
 
-        if (checker != -1)
-        {
-            str[index] = checker + '0';
-        }
-    }
-
-    return (str);
+	return (str);
 }
 
 int main(void)
