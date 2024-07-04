@@ -9,19 +9,20 @@
 
 char *leet(char *str)
 {
-	int index, i;
+	unsigned int index, i;
 	char characters[] = {'a', 'e', 'o', 't', 'l'};
 	int charsInt[] = {4, 3, 0, 7, 1};
 
-	for (index = 0; str[index] != '\0'; index++)
+	while (*str)
 	{
 		for (i = 0; i < sizeof(characters) / sizeof(char); i++)
 		{
-			if (str[index] == characters[i] || str[index] == characters[i] - 32)
+			if (*str == characters[i] || *str == characters[i] - 32)
 			{
-				str[index] = charsInt[i] + 48;
+				*str = charsInt[i] + 48;
 			}
 		}
+		str++;
 	}
 
 	return (str);
