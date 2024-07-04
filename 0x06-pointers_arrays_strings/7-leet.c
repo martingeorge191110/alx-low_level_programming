@@ -11,7 +11,7 @@ char *leet(char *str)
 {
 	int index, i;
 	char characters[] = {'a', 'e', 'o', 't', 'l'};
-	char charsInt[] = {4, 3, 0, 7, 1};
+	int charsInt[] = {4, 3, 0, 7, 1};
 
 	for (index = 0; str[index] != '\0'; index++)
 	{
