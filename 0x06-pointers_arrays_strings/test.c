@@ -1,31 +1,47 @@
 #include <stdio.h>
 
-int _strcmp(char *s1, char *s2)
+void print_array(int *a, int n)
 {
-    int i, j, result;
+    int i;
 
-    for (i = 0; s1[i] != '\0'; i++)
-    {};
-
-    for(j = 0; j < i; j++)
+    i = 0;
+    while (i < n)
     {
-        result = s1[j] - s2[j];
-        if(s1[j] != s2[j])
+        if (i != 0)
         {
-            break;
+            printf(", ");
         }
+        printf("%d", a[i]);
+        i++;
     }
-
-    return (result);
+    printf("\n");
 }
 
+void reverse_array(int *a, int n)
+{
+    int start, end, temp;
+
+    end = n - 1;
+    for (start = 0; start < end; start++)
+    {
+        temp = a[start];
+        a[start] = a[end];
+        a[end] = temp;
+        end--;
+    }
+}
+
+/**
+ * main - check the code
+ *
+ * Return: Always 0.
+ */
 int main(void)
 {
-    char s1[] = "Hello";
-    char s2[] = "World!";
+    int a[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 98, 1024, 1337};
 
-    printf("%d\n", _strcmp(s1, s2));
-    printf("%d\n", _strcmp(s2, s1));
-    printf("%d\n", _strcmp(s1, s1));
+    print_array(a, sizeof(a) / sizeof(int));
+    reverse_array(a, sizeof(a) / sizeof(int));
+    print_array(a, sizeof(a) / sizeof(int));
     return (0);
 }
