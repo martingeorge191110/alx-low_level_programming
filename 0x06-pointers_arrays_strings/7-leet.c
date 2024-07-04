@@ -4,7 +4,7 @@
  * checkCharNumber - check if the char from this array
  * @c: character
  *
- * Return: (result) which is integer
+ * Return: (result) which is character
  */
 
 char checkCharNumber(char c)
