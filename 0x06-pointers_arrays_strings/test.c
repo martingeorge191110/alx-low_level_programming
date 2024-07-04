@@ -1,80 +1,48 @@
 #include <stdio.h>
 
-
-#include "main.h"
-
-/**
- * isCharacter - check character or not
- * @charac: character to check
- *
- * Return: (checker)
- */
-
-int isCharacter(char charac)
+int checkCharNumber (char c)
 {
-	int checker;
+    int i, result;
+    char characters[] = {'a', 'e', 'o', 't', 'l'};
+    char charsInt[] = {4, 3, 0, 7, 1};
 
-	checker = 0;
-	if (charac >= 'a' && charac <= 'z')
-	{
-		checker = 1;
-	} else if (charac >= 'A' && charac <= 'Z')
-	{
-		checker = 2;
-	} else if (charac == ' ' || charac == '\n' || charac == '\t' ||
-	charac == ',' || charac == '.' || charac == '?' ||
-	charac == '(' || charac == ')' || charac == '{' ||
-	charac == '}' || charac == '!')
-	{
-		checker = 3;
-	}
+    result = -1;
+    for (i = 0; i < sizeof(characters) / sizeof(char); i++)
+    {
+        if (c == characters[i] || c == characters[i] - 32)
+        {
+            result = charsInt[i];
+            break;
+        }
+    }
 
-	return (checker);
+    return (result);
 }
 
-/**
- * cap_string - capitalizes all words of a string
- * @str: string to capitalize
- *
- * Return: (str) new str version
- */
-
-char *cap_string(char *str)
+char *leet(char *str)
 {
-	int index, checkPrevChar, checkCurrentChar;
+    int index, checker;
 
-	if (str[0] >= 'a' && str[0] <= 'z')
-	{
-		str[0] -= 32;
-	}
+    for (index = 0; str[index] != '\0'; index++)
+    {
+        checker = checkCharNumber(str[index]);
 
-	for (index = 1; str[index] != '\0'; index++)
-	{
-		checkPrevChar = isCharacter(str[index - 1]);
-		checkCurrentChar = isCharacter(str[index]);
-        printf("%d .. %d\n" , checkCurrentChar , checkPrevChar);
+        if (checker != -1)
+        {
+            str[index] = checker + '0';
+        }
+    }
 
-		if (checkPrevChar == 3 &&
-		checkCurrentChar == 1 &&
-		checkCurrentChar != 2 &&
-		checkPrevChar != 2)
-		{
-			str[index] -= 32;
-		}
-	}
-
-	return (str);
+    return (str);
 }
-
 
 int main(void)
 {
-    char str[] = "Expect the best. Prepare for the worst. Capitalize on what comes.\nhello world! hello-world 0123456hello world\thello world.hello world\n";
-    char *ptr;
+    char s[] = "Expect the best. Prepare for the worst. Capitalize on what comes.\n";
+    char *p;
 
-    ptr = cap_string(str);
-    printf("%s", ptr);
-    printf("%s", str);
-
+    p = leet(s);
+    printf("%s", p);
+    printf("%s", s);
     return (0);
 }
