@@ -9,7 +9,7 @@
 
 char *leet(char *str)
 {
-	int index, checker, i;
+	int index, i;
 	char characters[] = {'a', 'e', 'o', 't', 'l'};
 	char charsInt[] = {4, 3, 0, 7, 1};
 
