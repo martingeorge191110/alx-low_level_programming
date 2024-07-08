@@ -1,4 +1,13 @@
-#include <stdio.h>
+#include "main.h"
+
+/**
+ * _strpbrk - searches a string for any of a set of bytes.
+ * @s: source string
+ * @accept: bytes
+ *
+ * Return: (s + i) new version of string
+ * otherwise - null character
+ */
 
 char *_strpbrk(char *s, char *accept)
 {
@@ -16,16 +25,4 @@ char *_strpbrk(char *s, char *accept)
 	}
 
 	return ('\0');
-}
-
-
-int main(void)
-{
-    char *s = "martin, george";
-    char *f = "ouwn";
-    char *t;
-
-    t = _strpbrk(s, f);
-    printf("%s\n", t);
-    return (0);
 }
