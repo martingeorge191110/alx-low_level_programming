@@ -1,31 +1,33 @@
 #include <stdio.h>
 
-char *_strpbrk(char *s, char *accept)
+char *_strstr(char *haystack, char *needle)
 {
-	int i, j;
+    int i, j;
 
-	for (i = 0; s[i] != '\0'; i++)
-	{
-		for (j = 0; accept[j] != '\0'; j++)
-		{
-			if (s[i] == accept[j])
-			{
-				return (s + i);
-			}
-		}
-	}
-
-	return ('\0');
+    for (i = 0; haystack[i] != '\0'; i++)
+    {
+        for (j = 0; needle[j] != '\0'; j++)
+        {
+            if (haystack[i + j] != needle[j])
+                break;
+        }
+        if (needle[j] == '\0')
+        {
+            return (haystack + (i));
+        }
+    }
+    
+    return ('\0');
 }
 
 
 int main(void)
 {
-    char *s = "martin, george";
-    char *f = "ouwn";
+    char *s = "hello, world";
+    char *f = "world";
     char *t;
 
-    t = _strpbrk(s, f);
+    t = _strstr(s, f);
     printf("%s\n", t);
     return (0);
 }
