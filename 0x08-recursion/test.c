@@ -1,47 +1,42 @@
 #include <stdio.h>
 
-int findSquare(int n, int result)
+
+int testPrime (int n, int checker)
 {
-	if (result * result == n)
-	{
-		return (result);
-	} else if (result * result < n)
-	{
-		return (findSquare(n, result + 1));
-	}
-	else
-	{
-		return (-1);
-	}
+    if (checker >= n && n > 1)
+    {
+        return (1);
+    } else if (n % checker == 0 || n <= 1)
+    {
+        return (0);
+    }
+    return (testPrime(n, checker + 1));
 }
 
-/**
- * _sqrt_recursion - returns the natural square root of a number.
- * @n: given integer to know the root number
- *
- * Return: (findSquare(n, 1)) which return the root
- */
-
-int _sqrt_recursion(int n)
+int is_prime_number(int n)
 {
-	return (findSquare(n, 1));
+   return testPrime(n, 2);
 }
 
 int main(void)
 {
     int r;
 
-    r = _sqrt_recursion(1);
+    r = is_prime_number(1);
     printf("%d\n", r);
-    r = _sqrt_recursion(1024);
+    r = is_prime_number(1024);
     printf("%d\n", r);
-    r = _sqrt_recursion(16);
+    r = is_prime_number(16);
     printf("%d\n", r);
-    r = _sqrt_recursion(17);
+    r = is_prime_number(17);
     printf("%d\n", r);
-    r = _sqrt_recursion(25);
+    r = is_prime_number(25);
     printf("%d\n", r);
-    r = _sqrt_recursion(-1);
+    r = is_prime_number(-1);
+    printf("%d\n", r);
+    r = is_prime_number(113);
+    printf("%d\n", r);
+    r = is_prime_number(7919);
     printf("%d\n", r);
     return (0);
 }
