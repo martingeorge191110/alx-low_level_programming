@@ -1,4 +1,14 @@
-#include <stdio.h>
+#include "main.h"
+
+/**
+ * findSquare - find the root square number which give us n
+ * @n: source number
+ * @result: root
+ *
+ * Return: (result) if result * result == n
+ * otherwise - (findSquare(n, result + 1)) if result * result < n
+ * otherwise - (-1)
+ */
 
 int findSquare(int n, int result)
 {
@@ -25,23 +35,4 @@ int findSquare(int n, int result)
 int _sqrt_recursion(int n)
 {
 	return (findSquare(n, 1));
-}
-
-int main(void)
-{
-    int r;
-
-    r = _sqrt_recursion(1);
-    printf("%d\n", r);
-    r = _sqrt_recursion(1024);
-    printf("%d\n", r);
-    r = _sqrt_recursion(16);
-    printf("%d\n", r);
-    r = _sqrt_recursion(17);
-    printf("%d\n", r);
-    r = _sqrt_recursion(25);
-    printf("%d\n", r);
-    r = _sqrt_recursion(-1);
-    printf("%d\n", r);
-    return (0);
 }
