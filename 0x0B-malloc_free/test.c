@@ -4,7 +4,7 @@ int main(void)
 {
     char *s;
 
-    s = str_concat("Betty ", "Holberton");
+    s = str_concat("Martin ", "George");
     if (s == NULL)
     {
         printf("failed\n");

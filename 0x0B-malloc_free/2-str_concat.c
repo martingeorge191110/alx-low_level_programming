@@ -27,7 +27,6 @@ char *str_concat(char *s1, char *s2)
 	{};
 
 	s3Len = s1Len + s2Len + 1;
-	printf("%d \n ", s3Len);
 	newStr = malloc(s3Len * (sizeof(char)));
 
 	if (newStr == NULL)
