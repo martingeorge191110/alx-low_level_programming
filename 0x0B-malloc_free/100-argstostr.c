@@ -14,6 +14,9 @@ char *argstostr(int ac, char **av)
 	char *ptr;
 	int i, len, j;
 
+	if (ac == 0 || av == NULL)
+		return (NULL);
+
 	len = 0;
 	for (i = 0; i < ac; i++)
 	{
