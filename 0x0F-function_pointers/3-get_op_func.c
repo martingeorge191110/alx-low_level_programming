@@ -5,7 +5,8 @@
  * @s: character which is the operator
  *
  * Return: (ops[i].f) which is the pointer top
- * operation function
+ * operation function,
+ * otherwise - (NULL)
  */
 
 int (*get_op_func(char *s))(int, int)
@@ -25,6 +26,9 @@ int (*get_op_func(char *s))(int, int)
 	{
 		i++;
 	}
+
+	if (ops[i].op == NULL)
+		return (NULL);
 
 	return (ops[i].f);
 }

@@ -5,7 +5,7 @@
  * @a: int one
  * @b: int two
  *
- * Return: (a + b) which is the result of summition
+ * Return: (a + b) which is the result of summation
  */
 
 int op_add(int a, int b)
@@ -31,7 +31,7 @@ int op_sub(int a, int b)
  * @a: int one
  * @b: int two
  *
- * Return: (a * b)
+ * Return: (a * b) which is result of multiplication
  */
 
 int op_mul(int a, int b)
@@ -44,7 +44,7 @@ int op_mul(int a, int b)
  * @a: int one
  * @b: int two
  *
- * Return: (a / b) which is the result of divison
+ * Return: (a / b) which is the result of division
  */
 
 int op_div(int a, int b)
@@ -53,11 +53,11 @@ int op_div(int a, int b)
 }
 
 /**
- * op_mod - remainder ot the division of two integers
+ * op_mod - remainder of the division of two integers
  * @a: int one
  * @b: int two
  *
- * Return: (a % b) which is the remainder ot the division
+ * Return: (a % b) which is the remainder of the division
  */
 
 int op_mod(int a, int b)

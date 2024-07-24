@@ -2,7 +2,7 @@
 
 /**
  * main - Entry point
- * @argv: argument value
+ * @argv: argument values
  * @argc: argument counter
  *
  * Return: (0) Success
@@ -11,6 +11,7 @@
 int main(int argc, char *argv[])
 {
 	int n1, n2;
+	int (*ptr)(int, int);
 	char *operator;
 
 	if (argc != 4)
@@ -29,6 +30,7 @@ int main(int argc, char *argv[])
 		exit(99);
 	}
 
+	ptr = get_op_func(operator);
 	if (*(operator) == '/' && n2 == 0)
 	{
 		printf("Error\n");
@@ -40,7 +42,7 @@ int main(int argc, char *argv[])
 		exit(100);
 	}
 
-	printf("%d\n", get_op_func(operator)(n1, n2));
+	printf("%d\n", ptr(n1, n2));
 
 	return (0);
 }
