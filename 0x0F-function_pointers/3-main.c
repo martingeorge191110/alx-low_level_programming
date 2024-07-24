@@ -31,12 +31,7 @@ int main(int argc, char *argv[])
 	}
 
 	ptr = get_op_func(operator);
-	if (*(operator) == '/' && n2 == 0)
-	{
-		printf("Error\n");
-		exit(100);
-	}
-	if (*(operator) == '%' && n2 == 0)
+	if ((*operator == '/' || *operator == '%') && n2 == 0)
 	{
 		printf("Error\n");
 		exit(100);
