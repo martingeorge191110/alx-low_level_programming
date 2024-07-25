@@ -21,8 +21,8 @@ void character(char *sep, va_list ptr)
 {
 	char c;
 
-	c = va_arg(ptr, char);
-	printf("%s%c", sep, c);
+	c = va_arg(ptr, int);
+	printf("%s%c", sep, (char)c);
 }
 
 /**
