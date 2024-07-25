@@ -7,10 +7,7 @@
 
 void integer(va_list ptr)
 {
-	int i;
-
-	i = va_arg(ptr, int);
-	printf("%d", i);
+	printf("%d", va_arg(ptr, int));
 }
 
 /**
@@ -20,10 +17,7 @@ void integer(va_list ptr)
 
 void character(va_list ptr)
 {
-	char c;
-
-	c = va_arg(ptr, int);
-	printf("%c", c);
+	printf("%c", (char)va_arg(ptr, int));
 }
 
 /**
@@ -36,11 +30,8 @@ void string(va_list ptr)
 	char *str;
 
 	str = va_arg(ptr, char *);
-	if (str == NULL)
-	{
-	printf("(nil)");
-	return;
-	}
+	if (!str)
+		str = "(nil)";
 	printf("%s", str);
 }
 
@@ -51,10 +42,7 @@ void string(va_list ptr)
 
 void floating(va_list ptr)
 {
-	float fl;
-
-	fl = va_arg(ptr, double);
-	printf("%f", fl);
+	printf("%f", va_arg(ptr, double));
 }
 
 /**
@@ -65,7 +53,7 @@ void floating(va_list ptr)
 void print_all(const char * const format, ...)
 {
 	va_list ptr;
-	char *sep;
+	char *sep = "";
 	int i, j;
 	func_type arrType[] = {
 		{.t = 'c', .f = character},
@@ -75,10 +63,8 @@ void print_all(const char * const format, ...)
 		{.t = '\0', .f = NULL}
 	};
 
-	va_start(ptr, format);
-
 	i = 0;
-	sep = "";
+	va_start(ptr, format);
 	while (format && format[i])
 	{
 		j = 0;
@@ -89,6 +75,7 @@ void print_all(const char * const format, ...)
 				printf("%s", sep);
 				arrType[j].f(ptr);
 				sep = ", ";
+				break;
 			}
 			j++;
 		}
