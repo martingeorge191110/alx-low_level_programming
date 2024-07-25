@@ -19,7 +19,10 @@ void integer(char *sep, va_list ptr)
 
 void character(char *sep, va_list ptr)
 {
-	printf("%s%c", sep, (char)va_arg(ptr, int));
+	char c;
+
+	c = va_arg(ptr, char);
+	printf("%s%c", sep, c);
 }
 
 /**
@@ -34,9 +37,12 @@ void string(char *sep, va_list ptr)
 
 	str = va_arg(ptr, char *);
 	if (!str)
+	{
 		str = "(nil)";
+		return;
+	}
 
-	printf("%s%s", sep, str);
+	printf("%s%s", str);
 }
 
 /**
