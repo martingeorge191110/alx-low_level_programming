@@ -56,11 +56,11 @@ void print_all(const char * const format, ...)
 	char *sep = "";
 	int i, j;
 	func_type arrType[] = {
-		{.t = 'c', .f = character},
-		{.t = 'i', .f = integer},
-		{.t = 'f', .f = floating},
-		{.t = 's', .f = string},
-		{.t = '\0', .f = NULL}
+		{'c', character},
+		{'i', integer},
+		{'f', floating},
+		{'s', string},
+		{'\0', NULL}
 	};
 
 	i = 0;
