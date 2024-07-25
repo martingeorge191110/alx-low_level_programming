@@ -2,58 +2,59 @@
 
 /**
  * integer - to print the enteger data with separator
- * @sep: separator to be printed
  * @ptr: pointer to parameters list
  */
 
-void integer(char *sep, va_list ptr)
+void integer(va_list ptr)
 {
-	printf("%s%d", sep, va_arg(ptr, int));
+	int i;
+
+	i = va_arg(ptr, int);
+	printf("%d", i);
 }
 
 /**
  * character - to print the character data with separator
- * @sep: separator to be printed
  * @ptr: pointer to parameters list
  */
 
-void character(char *sep, va_list ptr)
+void character(va_list ptr)
 {
 	char c;
 
 	c = va_arg(ptr, int);
-	printf("%s%c", sep, (char)c);
+	printf("%c", c);
 }
 
 /**
  * string - to print the srting data with separator
- * @sep: separator to be printed
  * @ptr: pointer to parameters list
  */
 
-void string(char *sep, va_list ptr)
+void string(va_list ptr)
 {
 	char *str;
 
 	str = va_arg(ptr, char *);
-	if (!str)
+	if (str == NULL)
 	{
-		str = "(nil)";
-		return;
+	printf("(nil)");
+	return;
 	}
-
-	printf("%s%s", str);
+	printf("%s", str);
 }
 
 /**
  * floating - to print the float data with separator
- * @sep: separator to be printed
  * @ptr: pointer to parameters list
  */
 
-void floating(char *sep, va_list ptr)
+void floating(va_list ptr)
 {
-	printf("%s%f", sep, va_arg(ptr, double));
+	float fl;
+
+	fl = va_arg(ptr, double);
+	printf("%f", fl);
 }
 
 /**
@@ -66,7 +67,7 @@ void print_all(const char * const format, ...)
 	va_list ptr;
 	char *sep;
 	int i, j;
-	funcType arrType[] = {
+	func_type arrType[] = {
 		{.t = 'c', .f = character},
 		{.t = 'i', .f = integer},
 		{.t = 'f', .f = floating},
@@ -85,7 +86,8 @@ void print_all(const char * const format, ...)
 		{
 			if (arrType[j].t == format[i])
 			{
-				arrType[j].f(sep, ptr);
+				printf("%s", sep);
+				arrType[j].f(ptr);
 				sep = ", ";
 			}
 			j++;
