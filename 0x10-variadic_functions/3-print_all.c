@@ -30,19 +30,11 @@ void character(char *sep, va_list ptr)
 
 void string(char *sep, va_list ptr)
 {
-	int num = 0;
 	char *str;
 
 	str = va_arg(ptr, char *);
 	if (!str)
-	{
-		num = 1;
-	}
-	switch (num)
-	{
-		case (1):
-			str = "(nil)";
-	}
+		str = "(nil)";
 
 	printf("%s%s", sep, str);
 }
