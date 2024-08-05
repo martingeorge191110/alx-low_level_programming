@@ -10,19 +10,13 @@
 size_t print_listint(const listint_t *h)
 {
 	size_t counter;
-	const listint_t *temp;
 
 	counter = 0;
-	temp = (listint_t *)malloc(sizeof(listint_t));
-	if (temp == NULL)
-		return (counter);
-
-	temp = h;
-	while (temp)
+	while (h)
 	{
-		printf("%d\n", temp->n);
+		printf("%d\n", h->n);
 		counter++;
-		temp = temp->next;
+		h = h->next;
 	}
 
 	return (counter);
