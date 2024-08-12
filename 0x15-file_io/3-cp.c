@@ -31,7 +31,7 @@ void checkErrors(int file_from, int file_to, char *argv[])
 
 int main(int argc, char *argv[])
 {
-	int fileFrom, fileTo, readFile, writeFile;
+	int fileFrom, fileTo, writeFile, counter;
 	char buffer[1024];
 
 	if (argc != 3)
@@ -43,14 +43,16 @@ int main(int argc, char *argv[])
 	fileTo = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
 	checkErrors(fileFrom, fileTo, argv);
 
-	readFile = read(fileFrom, buffer, 1024);
-	writeFile = write(fileTo, buffer, readFile);
-	if (readFile == -1)
-		checkErrors(-1, 1, argv);
-	if (writeFile == -1)
-		checkErrors(1, -1, argv);
-
-
+	counter = 1024;
+	while (counter == 1024)
+	{
+		counter = read(fileFrom, buffer, 1024);
+		if (counter == -1)
+			checkErrors(-1, 0, argv);
+		writeFile = write(fileTo, buffer, counter);
+		if (writeFile == -1)
+			checkErrors(0, -1, argv);
+	}
 
 	close(fileFrom);
 	if (close(fileFrom) == -1)
