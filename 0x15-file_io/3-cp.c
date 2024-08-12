@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
 		exit(97);
 	}
 	fileFrom = open(argv[1], O_RDONLY);
-	fileTo = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
+	fileTo = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	checkErrors(fileFrom, fileTo, argv);
 
 	counter = 1024;
@@ -49,10 +49,10 @@ int main(int argc, char *argv[])
 	{
 		counter = read(fileFrom, buffer, 1024);
 		if (counter == -1)
-			file_error(-1, 0, argv);
+			checkErrors(-1, 0, argv);
 		writeFile = write(fileTo, buffer, counter);
 		if (writeFile == -1)
-			file_error(0, -1, argv);
+			checkErrors(0, -1, argv);
 	}
 
 	closeFile = close(fileFrom);
