@@ -31,40 +31,40 @@ void checkErrors(int file_from, int file_to, char *argv[])
 
 int main(int argc, char *argv[])
 {
-	int fileFrom, fileTo, closeFile;
+	int file_from, file_to, closeFile;
 	ssize_t writeFile, counter;
 	char buffer[1024];
 
 	if (argc != 3)
 	{
-		dprintf(STDERR_FILENO, "Usage: cp filefFrom fileTo\n");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	fileFrom = open(argv[1], O_RDONLY);
-	fileTo = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
-	checkErrors(fileFrom, fileTo, argv);
+	file_from = open(argv[1], O_RDONLY);
+	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	checkErrors(file_from, file_to, argv);
 
 	counter = 1024;
 	while (counter == 1024)
 	{
-		counter = read(fileFrom, buffer, 1024);
+		counter = read(file_from, buffer, 1024);
 		if (counter == -1)
 			checkErrors(-1, 0, argv);
-		writeFile = write(fileTo, buffer, counter);
+		writeFile = write(file_to, buffer, counter);
 		if (writeFile == -1)
 			checkErrors(0, -1, argv);
 	}
 
-	closeFile = close(fileFrom);
+	closeFile = close(file_from);
 	if (closeFile == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fileFrom);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from);
 		exit(100);
 	}
-	closeFile = close(fileTo);
+	closeFile = close(file_to);
 	if (closeFile == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fileTo);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_to);
 		exit(100);
 	}
 
