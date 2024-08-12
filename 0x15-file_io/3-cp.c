@@ -43,20 +43,18 @@ int main(int argc, char *argv[])
 	fileFrom = open(argv[1], O_RDONLY);
 	fileTo = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
 	checkErrors(fileFrom, fileTo, argv);
-	while ((counter = read(fileFrom, buffer, 1024)) > 0)
+
+	counter = 1024;
+	while (counter == 1024)
 	{
+		counter = read(fileFrom, buffer, 1024);
+		if (counter == -1)
+			file_error(-1, 0, argv);
 		writeFile = write(fileTo, buffer, counter);
 		if (writeFile == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-			exit(99);
-		}
+			file_error(0, -1, argv);
 	}
-	if (counter == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-		exit(98);
-	}
+
 	closeFile = close(fileFrom);
 	if (closeFile == -1)
 	{
