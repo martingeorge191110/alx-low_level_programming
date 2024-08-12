@@ -31,7 +31,8 @@ void checkErrors(int file_from, int file_to, char *argv[])
 
 int main(int argc, char *argv[])
 {
-	int fileFrom, fileTo, writeFile, counter;
+	int fileFrom, fileTo;
+	ssize_t writeFile, counter;
 	char buffer[1024];
 
 	if (argc != 3)
