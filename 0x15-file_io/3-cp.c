@@ -43,25 +43,26 @@ int main(int argc, char *argv[])
 	fileFrom = open(argv[1], O_RDONLY);
 	fileTo = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
 	checkErrors(fileFrom, fileTo, argv);
-
-	counter = read(fileFrom, buffer, 1024);
-	while (counter > 0)
+	while ((counter = read(fileFrom, buffer, 1024)) > 0)
 	{
 		writeFile = write(fileTo, buffer, counter);
 		if (writeFile == -1)
-			checkErrors(1, -1, argv);
+		{
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+			exit(99);
+		}
 	}
 	if (counter == -1)
-		checkErrors(-1, 1, argv);
-
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		exit(98);
+	}
 	closeFile = close(fileFrom);
 	if (closeFile == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fileFrom);
 		exit(100);
 	}
-
-
 	closeFile = close(fileTo);
 	if (closeFile == -1)
 	{
