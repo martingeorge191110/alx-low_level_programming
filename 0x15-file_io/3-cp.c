@@ -44,8 +44,8 @@ int main(int argc, char *argv[])
 	fileTo = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
 	checkErrors(fileFrom, fileTo, argv);
 
-	counter = 1024;
-	while ((counter = read(fileFrom, buffer, 1024)) > 0)
+	counter = read(fileFrom, buffer, 1024);
+	while (counter > 0)
 	{
 		writeFile = write(fileTo, buffer, counter);
 		if (writeFile == -1)
