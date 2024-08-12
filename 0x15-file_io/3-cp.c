@@ -31,7 +31,7 @@ void checkErrors(int file_from, int file_to, char *argv[])
 
 int main(int argc, char *argv[])
 {
-	int fileFrom, fileTo;
+	int fileFrom, fileTo, closeFile;
 	ssize_t writeFile, counter;
 	char buffer[1024];
 
@@ -55,16 +55,16 @@ int main(int argc, char *argv[])
 			checkErrors(0, -1, argv);
 	}
 
-	close(fileFrom);
-	if (close(fileFrom) == -1)
+	closeFile = close(fileFrom);
+	if (closeFile == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fileFrom);
 		exit(100);
 	}
 
 
-	close(fileTo);
-	if (close(fileTo) == -1)
+	closeFile = close(fileTo);
+	if (closeFile == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fileTo);
 		exit(100);
