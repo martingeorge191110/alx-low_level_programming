@@ -45,14 +45,14 @@ int main(int argc, char *argv[])
 	checkErrors(fileFrom, fileTo, argv);
 
 	counter = 1024;
-	while (counter == 1024)
+	while (counter > 0)
 	{
 		counter = read(fileFrom, buffer, 1024);
 		if (counter == -1)
-			checkErrors(-1, 0, argv);
+			checkErrors(-1, 1, argv);
 		writeFile = write(fileTo, buffer, counter);
 		if (writeFile == -1)
-			checkErrors(0, -1, argv);
+			checkErrors(1, -1, argv);
 	}
 
 	closeFile = close(fileFrom);
