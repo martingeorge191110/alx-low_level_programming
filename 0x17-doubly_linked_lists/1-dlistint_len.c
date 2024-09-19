@@ -1,7 +1,8 @@
 #include "lists.h"
 
 /**
- * print_dlistint - Function to returns the number of elements in a dlistint_t list
+ * dlistint_len - Function to returns the number of elements
+ *							in a dlistint_t list
  * @h: pointer points to the head of the list
  *
  * Return: (counter) which is the number of nodes
