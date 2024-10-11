@@ -24,10 +24,11 @@ void hash_table_print(const hash_table_t *ht)
 		temp = ht->array[i];
 		while (temp)
 		{
-			printf("%s'%s': '%s'", seperator, temp->key, temp->value);\
+			printf("%s'%s': '%s'", seperator, temp->key, temp->value);
 			seperator = ", ";
 			temp = temp->next;
 		}
+		temp = NULL;
 	}
 	printf("}\n");
 }
