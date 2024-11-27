@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Defines an island perimeter measuring function."""
+"""island_perimeter Function."""
 
 
 def island_perimeter(grid):
